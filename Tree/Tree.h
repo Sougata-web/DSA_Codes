@@ -6,7 +6,8 @@ typedef struct tree{
     struct tree *left,*right;
 }tree;
 
-tree * create(int value);
+tree * create();
+tree* createTree(int value);
 void preorder(tree * root);
 void inorder(tree *root);
 void postorder(tree *root);

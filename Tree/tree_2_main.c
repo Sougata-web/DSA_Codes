@@ -2,9 +2,9 @@
 
 int main()
 {
-    tree *root;
-    root = 0;
-    root = create();
+    tree *root=NULL;
+    
+    root = create(1);
     printf("Pre order traversal\n");
     preorder(root);
     printf("In order traversal\n");
