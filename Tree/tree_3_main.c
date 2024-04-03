@@ -4,8 +4,12 @@ int main(){
 
     tree * root=NULL;
     printf("Make a Tree");
+
     while(1){
         int choice;
+        printf("\n1. Create Tree\n 2. \n3. Pre Order Traversal\n 4. In Order Traversal\n 5. Post Order Traversal\n6. Exit\n");
+        printf("Enter Your Choice:\n");
+        scanf("%d",&choice);
 
         switch (choice)
         {
@@ -13,7 +17,7 @@ int main(){
             int value;
             printf("Enter the value of root:\n");
             scanf("%d",&value);
-            createTree(value);
+            createTree(root,value);
             break;
         case 2:
            

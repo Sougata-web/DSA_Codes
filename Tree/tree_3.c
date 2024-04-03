@@ -1,34 +1,34 @@
 #include "Tree.h"
 
-tree *createTree(int value)
+tree *createTree(tree * root,int value)
 {
     tree *newTree = malloc(sizeof(tree));
-    newTree->data = value;
-    newTree->left = NULL;
-    newTree->right = NULL;
-    return newTree;
-}
-
-tree *insertTree(tree *root, int value)
-{
     if (root == NULL)
     {
-        root = create(value);
+        root = createTree(root,value);
         return root;
     }
     else if (value < root->data && value != root->data)
     {
-        root->left = insertTree(root->left, value);
+        root->left = createTree(root->left, value);
     }
     else if (value > root->data && value != root->data)
     {
-        root->right = insertTree(root->right, value);
+        root->right = createTree(root->right, value);
     }
     else
     {
         printf("\nEnter a valid input\n");
     }
+    newTree->data = value;
+    return newTree;
 }
+
+// tree *insertTree(tree *root, int value)
+// {
+    
+//     return root;
+// }
 
 void preorder(tree *root)
 {
