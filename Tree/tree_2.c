@@ -1,6 +1,6 @@
 // Create tree and traversals
 
-#include "Tree.h";
+#include "Tree.h"
 
 tree *create()
 {
