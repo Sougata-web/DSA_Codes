@@ -1,13 +1,6 @@
 // Create tree and traversals
 
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct tree
-{
-    int data;
-    struct tree *left, *right;
-} tree;
+#include "Tree.h";
 
 tree *create()
 {
@@ -67,19 +60,3 @@ void postorder(tree *root)
     }
 }
 
-int main()
-{
-    tree *root;
-    root = 0;
-    root = create();
-    printf("Pre order traversal\n");
-    preorder(root);
-    printf("In order traversal\n");
-
-    inorder(root);
-    printf("Post order traversal\n");
-
-    postorder(root);
-    free(root);
-    return 0;
-}
