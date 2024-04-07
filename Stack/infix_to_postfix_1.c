@@ -57,6 +57,10 @@ void infix_to_postfix(char s[]){
     printf("%s\n",result);
 
 }
+
+void infix_to_prefix(char s[]){
+    
+}
 int main(){
    
     char exp[100];
