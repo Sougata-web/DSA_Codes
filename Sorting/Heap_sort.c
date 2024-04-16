@@ -19,12 +19,16 @@ void heapify(int arr[], int n, int i)
 		maximum = right_index; 
 
 	if (maximum != i) { 
-		temp = arr[i]; 
-		arr[i] = arr[maximum]; 
-		arr[maximum] = temp; 
+		swap(&arr[i],&arr[maximum]);
 		heapify(arr, n, maximum); 
 	} 
 } 
+int swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
 
 void heapsort(int arr[], int n) 
 { 
@@ -35,21 +39,16 @@ void heapsort(int arr[], int n)
 	} 
 
 	for (i = n - 1; i > 0; i--) { 
-		temp = arr[0]; 
-		arr[0] = arr[i]; 
-		arr[i] = temp; 
+		swap(&arr[0],&arr[i]);
 		heapify(arr, i, 0); 
 	} 
 } 
 
-// Driver code 
 int main() 
 { 
-	// initializing the array 
 	int arr[] = { 20, 18, 5, 15, 3, 2 }; 
 	int n = 6; 
 
-	// Displaying original array 
 	printf("Original Array : "); 
 	for (int i = 0; i < n; i++) { 
 		printf("%d ", arr[i]); 
@@ -58,7 +57,6 @@ int main()
 	printf("\n"); 
 	heapsort(arr, n); 
 
-	// Displaying sorted array 
 	printf("Array after performing heap sort: "); 
 	for (int i = 0; i < n; i++) { 
 		printf("%d ", arr[i]); 
