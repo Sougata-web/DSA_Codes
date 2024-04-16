@@ -1,49 +1,67 @@
-#include<stdio.h>
+// C Program for HeapSort 
+#include <stdio.h> 
 
-void maxHeapify(int Arr[],int n,int i){
-    int largest=i;
-    int l=(2*i);
-    int r=(2*i)+1;
+void heapify(int arr[], int n, int i) 
+{ 
+	int temp, maximum, left_index, right_index; 
 
-    while(l<=n && Arr[l]>Arr[largest]){
-        largest=l;
-    }
-    while(r<=n && Arr[r]>Arr[largest]){
-        largest=r;
-    }
+	maximum = i; 
 
-    if(largest!=i){
-        swap(Arr[largest],Arr[i]);
-        maxHeapify(Arr,n,largest);
-    }
-}
+	right_index = 2 * i + 2; 
 
-int swap(int xp,int yp){
-    int temp=xp;
-    xp=yp;
-    yp=temp;
-}
+	left_index = 2 * i + 1; 
 
-void heapSort(int Arr[],int n){
-    for(int i=n/2;i>=1;i--){
-        maxHeapify(Arr,n,i);
-    }
-    for(int i=n;i>-1;i--){
-        swap(Arr[1],Arr[i]);
-        maxHeapify(Arr,n,i);
-    }
-}
-int main(){
-    int arr[] = { 12, 11, 13, 5, 6, 7 };
-	int arr_size = sizeof(arr) / sizeof(arr[0]);
-    heapSort(arr,arr_size);
+	
+	if (left_index < n && arr[left_index] > arr[maximum]) 
+		maximum = left_index; 
 
-    for(int i=0;i<arr_size;i++){
-        printf("%d ",arr[i]);
-    }
-    
+	if (right_index < n && arr[right_index] > arr[maximum]) 
+		maximum = right_index; 
 
+	if (maximum != i) { 
+		temp = arr[i]; 
+		arr[i] = arr[maximum]; 
+		arr[maximum] = temp; 
+		heapify(arr, n, maximum); 
+	} 
+} 
 
-    
-    return 0;
+void heapsort(int arr[], int n) 
+{ 
+	int i, temp; 
+
+	for (i = n / 2 - 1; i >= 0; i--) { 
+		heapify(arr, n, i); 
+	} 
+
+	for (i = n - 1; i > 0; i--) { 
+		temp = arr[0]; 
+		arr[0] = arr[i]; 
+		arr[i] = temp; 
+		heapify(arr, i, 0); 
+	} 
+} 
+
+// Driver code 
+int main() 
+{ 
+	// initializing the array 
+	int arr[] = { 20, 18, 5, 15, 3, 2 }; 
+	int n = 6; 
+
+	// Displaying original array 
+	printf("Original Array : "); 
+	for (int i = 0; i < n; i++) { 
+		printf("%d ", arr[i]); 
+	} 
+
+	printf("\n"); 
+	heapsort(arr, n); 
+
+	// Displaying sorted array 
+	printf("Array after performing heap sort: "); 
+	for (int i = 0; i < n; i++) { 
+		printf("%d ", arr[i]); 
+	} 
+	return 0; 
 }
