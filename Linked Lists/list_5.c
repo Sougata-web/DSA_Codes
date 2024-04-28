@@ -37,7 +37,7 @@ int printList(){
 void del_begin(){
     temp=start;
     start=start->next;
-    free(temp);
+    free(temp); 
 }
 
 void del_end(){
