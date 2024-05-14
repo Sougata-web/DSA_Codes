@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 int main()
 {
     int i = 0, j = 0, k = 0, m, n;
@@ -54,7 +54,6 @@ int main()
         j++;
         k++;
     }
-
 
     printf("The sorted array:\n");
     for (i = 0; i < m + n; i++)
