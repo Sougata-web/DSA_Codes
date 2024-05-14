@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> countSort(vector<int>& inputArray)
+vector<int> countSort(vector<int> &inputArray)
 {
 
 	int N = inputArray.size();
@@ -32,8 +32,7 @@ vector<int> countSort(vector<int>& inputArray)
 	for (int i = N - 1; i >= 0; i--)
 
 	{
-		outputArray[countArray[inputArray[i]] - 1]
-			= inputArray[i];
+		outputArray[countArray[inputArray[i]] - 1] = inputArray[i];
 
 		countArray[inputArray[i]]--;
 	}
@@ -47,7 +46,7 @@ int main()
 {
 
 	// Input array
-	vector<int> inputArray = { 1,1,1,2,3,3,2,2,1,2,3};
+	vector<int> inputArray = {1, 1, 1, 2, 3, 3, 2, 2, 1, 2, 3};
 
 	// Output array
 	vector<int> outputArray = countSort(inputArray);
