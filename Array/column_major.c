@@ -8,6 +8,8 @@ int main()
         {
             a[j][i] = (i * j + 1);
         }
+
+        
     }
 
     for (i = 0; i < c; i++)
