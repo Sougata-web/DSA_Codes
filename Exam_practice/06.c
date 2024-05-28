@@ -5,49 +5,56 @@
 #define MAX_SIZE 100
 
 // Structure to represent a stack
-struct Stack {
+struct Stack
+{
     int top;
     unsigned capacity;
-    char* array;
+    char *array;
 };
 
 // Function to create a stack of given capacity
-struct Stack* createStack(unsigned capacity) {
-    struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
+struct Stack *createStack(unsigned capacity)
+{
+    struct Stack *stack = (struct Stack *)malloc(sizeof(struct Stack));
     stack->capacity = capacity;
     stack->top = -1;
-    stack->array = (char*)malloc(stack->capacity * sizeof(char));
+    stack->array = (char *)malloc(stack->capacity * sizeof(char));
     return stack;
 }
 
 // Function to check if stack is full
-int isFull(struct Stack* stack) {
+int isFull(struct Stack *stack)
+{
     return stack->top == stack->capacity - 1;
 }
 
 // Function to check if stack is empty
-int isEmpty(struct Stack* stack) {
+int isEmpty(struct Stack *stack)
+{
     return stack->top == -1;
 }
 
 // Function to push element onto stack
-void push(struct Stack* stack, char item) {
+void push(struct Stack *stack, char item)
+{
     if (isFull(stack))
         return;
     stack->array[++stack->top] = item;
 }
 
 // Function to pop element from stack
-char pop(struct Stack* stack) {
+char pop(struct Stack *stack)
+{
     if (isEmpty(stack))
         return '\0';
     return stack->array[stack->top--];
 }
 
 // Function to reverse a string using stack
-void reverseString(char* str) {
+void reverseString(char *str)
+{
     int len = strlen(str);
-    struct Stack* stack = createStack(len);
+    struct Stack *stack = createStack(len);
     int i;
 
     // Push all characters of string onto stack
@@ -62,7 +69,8 @@ void reverseString(char* str) {
     free(stack);
 }
 
-int main() {
+int main()
+{
     char input[MAX_SIZE];
 
     printf("Enter a string: ");
