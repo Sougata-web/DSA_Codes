@@ -2,16 +2,19 @@
 #include <stdlib.h>
 
 // Structure for a term in a polynomial
-struct Term {
+struct Term
+{
     int coefficient;
     int exponent;
-    struct Term* next;
+    struct Term *next;
 };
 
 // Function to create a new term node
-struct Term* createTerm(int coeff, int exp) {
-    struct Term* newTerm = (struct Term*)malloc(sizeof(struct Term));
-    if (newTerm == NULL) {
+struct Term *createTerm(int coeff, int exp)
+{
+    struct Term *newTerm = (struct Term *)malloc(sizeof(struct Term));
+    if (newTerm == NULL)
+    {
         printf("Memory allocation failed.\n");
         exit(1);
     }
@@ -22,13 +25,18 @@ struct Term* createTerm(int coeff, int exp) {
 }
 
 // Function to insert a term into the polynomial (at the end)
-void insertTerm(struct Term** polynomial, int coeff, int exp) {
-    struct Term* newTerm = createTerm(coeff, exp);
-    if (*polynomial == NULL) {
+void insertTerm(struct Term **polynomial, int coeff, int exp)
+{
+    struct Term *newTerm = createTerm(coeff, exp);
+    if (*polynomial == NULL)
+    {
         *polynomial = newTerm;
-    } else {
-        struct Term* temp = *polynomial;
-        while (temp->next != NULL) {
+    }
+    else
+    {
+        struct Term *temp = *polynomial;
+        while (temp->next != NULL)
+        {
             temp = temp->next;
         }
         temp->next = newTerm;
@@ -36,15 +44,20 @@ void insertTerm(struct Term** polynomial, int coeff, int exp) {
 }
 
 // Function to display the polynomial
-void displayPolynomial(struct Term* polynomial) {
-    if (polynomial == NULL) {
+void displayPolynomial(struct Term *polynomial)
+{
+    if (polynomial == NULL)
+    {
         printf("Polynomial is empty.\n");
         return;
     }
-    while (polynomial != NULL) {
+    while (polynomial != NULL)
+    {
         printf("%dx^%d", polynomial->coefficient, polynomial->exponent);
-        if (polynomial->next != NULL) {
-            if (polynomial->next->coefficient >= 0) {
+        if (polynomial->next != NULL)
+        {
+            if (polynomial->next->coefficient >= 0)
+            {
                 printf(" + ");
             }
         }
@@ -53,9 +66,10 @@ void displayPolynomial(struct Term* polynomial) {
     printf("\n");
 }
 
-int main() {
+int main()
+{
     // Create an empty polynomial
-    struct Term* polynomial = NULL;
+    struct Term *polynomial = NULL;
 
     // Insert terms into the polynomial
     insertTerm(&polynomial, 7, 6);
